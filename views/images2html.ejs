@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codedodle - Node.js image upload</title>
+    <meta name="description" content="Node.js image upload using express, jQuery using ajax.">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Status:
+            <%= status %>
+        </p>
+        <figure class="photos">
+            <% imgfiles.forEach(function(photo){ %>
+                <a id="img_link" href="/?image=<%= photo %>"><img src="/?image=<%= photo %>" width="210" height="140"> </a>
+                <% }) %>
+        </figure>
+    </div>
+</body>
+
+</html>

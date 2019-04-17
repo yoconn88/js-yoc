@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codedodle - Node.js image upload</title>
+    <meta name="description" content="Node.js image upload using express, jQuery using ajax.">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .video-warpper {
+            background: #111;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 700px;
+            height: 500px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+        
+        &:hover {
+            cursor: pointer;
+        }
+        
+        .dark-layer {
+            background: rgba(9, 9, 9, .4);
+        }
+        
+        img.play-btn {
+            opacity: 1;
+        }
+        
+        img {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+        
+        iframe {
+            width: 700px;
+            height: 500px;
+            border: none;
+        }
+        
+        .dark-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 9, 9, .3);
+            z-index: 2;
+            display: flex;
+            transition: .15s ease-in-out;
+        }
+        
+        img.play-btn {
+            width: 100px;
+            height: 60px;
+            margin: auto;
+            opacity: .95;
+            transition: .15s ease-in-out;
+            // None relevant style
+            @import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' body background: #3498db;
+            overflow: hidden;
+        }
+        
+        p {
+            color: #FFF;
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+        
+        a {
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <!--  
+  Get any youtube video link and put it in data-url
+-->
+    <div class="video-warpper" data-url="https://www.youtube.com/watch?v=yZ0f1Apb5CU&list=PL4cUxeGkcC9i0_2FF-WhtRIfIJ1lXlTZR">
+        <!--  Video's iframe and image will generated right here -->
+        <div class="dark-layer">
+            <img src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" class="play-btn" alt="Play Button" />
+        </div>
+    </div>
+
+    <p>Made by <a href="https://www.facebook.com/Eslam.nasser.yousef" target="_blank">Me</a></p>
+
+    <script>
+        // This function will get the video ID
+        function get_video_id(url) {
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            return (match && match[7].length == 11) ? match[7] : false;
+        }
+
+        // Start Appending the elements to the dom
+        $(document).ready(function() {
+
+            // Append the video thumbnail on load
+            $('.video-warpper').is(function() {
+                var id = get_video_id($(this).data('url')) // Video ID
+                $(this).append('<img class="video-thump" src="https://img.youtube.com/vi/' + id + '/0.jpg" alt="" />'); // Append the image
+            });
+
+            // Append the video iframe on user's click on the thumbnail
+            $('.video-warpper').click(function() {
+                var id = get_video_id($(this).data('url')) // Get the ID
+                $(this).append(
+                    '<iframe src="https://www.youtube.com/embed/' + id + '?showinfo=0&iv_load_policy=3&modestbranding=1&autoplay=1&rel=0"></iframe>'); // Appending the iframe
+                $(this).find('.dark-layer').fadeOut() // Remove the dark layer
+                $(this).find('.video-thump').fadeOut() // Remove the video thumbnail
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

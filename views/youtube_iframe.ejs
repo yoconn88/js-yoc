@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codedodle - Node.js image upload</title>
+    <meta name="description" content="Node.js image upload using express, jQuery using ajax.">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--
+    <style>
+        .thumbnail {
+            width: 210px;
+            height: 140px;
+            display: inline-block;
+            position: flex;
+        }
+        
+        .thumbnail iframe {
+            width: 900px;
+            height: 640px;
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(0.3, 0.3);
+            -moz-transform: scale(0.3, 0.3);
+            transform: scale(0.3, 0.3);
+            overflow: hidden;
+            position: flex;
+        }
+        
+        .thumbnail.overlay {
+            position: relative;
+        }
+        
+        .thumbnail.overlay iframe {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .thumbnail.overlay a {
+            display: inline-block;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            background-color: #fff;
+            opacity: 0;
+        }
+    </style>-->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!--slideshowarea-->
+                <div class="col-md-offset-2 col-md-10">
+                    <!--iframe width="210" height="140" name="show" id="show" allow="autoplay" frameborder="0"></iframe>
+    <!-- or use youtube iframe as recommended:-->
+                    https://youtu.be/seqLBn8YooA
+                    <!--a href="https://www.youtube.com/embed/Tc6-BIJB3yU" target="show">Video Gallery Tuturials</a>-->
+                    <div class="thumbnail overlay">
+                        <!--a href="https://www.youtube.com/embed/seqLBn8YooA">link</a>-->
+                        <a href=" https://youtu.be/seqLBn8YooA">link</a>
+                        <iframe width="210" height="140" src="http://localhost:3000/gallery?image=20161030_174516.jpg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/Gp587UcmWkw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/efal17QhYcg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/Tc6-BIJB3yU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/seqLBn8YooA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/XOImgofFhpE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/QENEqG0bMXI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/QENEqG0bMXI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+                        <iframe width="210" height="140" src="https://www.youtube.com/embed/IPVQeVlw2_E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="120" height="140" src="https://www.youtube.com/embed/ZTu9nysnHx0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

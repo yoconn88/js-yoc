@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--%- include('head_blueimg.ejs') %>-->
+    <%- include('css-links.ejs') %>
+
+</head>
+
+
+<%- include('topnav.ejs') %>
+    <!-- container for blueimp gallery: -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--slideshowarea-->
+                <div class="col-md-offset-2 col-md-10">
+
+                    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+                    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev">‹</a>
+                        <a class="next">›</a>
+                        <a class="close">×</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator"></ol>
+                    </div>
+
+                    <div id="links">
+                        <div class="row">
+                            <div class="col-md-12" id="links1row">
+                                <figure class="photos">
+                                    <% imgfiles.forEach(function(photo){ %>
+                                        <a id="img-links" href="/gallery?image=<%= photo %>"><img src="/gallery?image=<%= photo %>" width="210" height="140"> </a>
+                                        <% }) %>
+                                </figure>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photos Album Container -->
+    <!--div id="album" class="row"></div>-->
+
+    <!--script src="./node_modules/blueimp-gallry/js/blueimp-gallery.min.js"></script>-->
+    <!--script src="js/blueimp-gallery.js"></script>
+
+        <!-- display the images in the Gallery lightbox on click of the links: -->
+    <script>
+        document.getElementById('links').onclick = function(event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {
+                    index: link,
+                    event: event
+                },
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+    </script>
+    <%- include('js-libs.ejs') %>

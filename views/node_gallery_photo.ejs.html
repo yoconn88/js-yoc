@@ -1,0 +1,149 @@
+<link href="/<%= urlRoot %>/gallery.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.js"></script>
+
+<!--style>
+    #myImg01 {
+        pointer-events: none;
+    }
+</style>-->
+
+<nav class="breadcrumb">
+    <% for (var i=0; i<breadcrumb.length; i++) { %>
+
+        <% if (i==breadcrumb.length-1){ %>
+            <%= breadcrumb[i].name %>
+                <% }else{ %>
+                    <a id="img_link" href="/<%= breadcrumb[i].url %>">
+                        <%= breadcrumb[i].name %> &raquo; </a>
+
+
+                    <% } %>
+
+                        <% } %>
+</nav>
+
+
+<!--
+<h1 class="photo-title">
+    <%= name %>
+</h1>
+-->
+
+<figure class="photo">
+    <img id="myImg01" src="/<%= src %>?tn=0" alt="<%= name%>">
+    <!--img id="myImg01" src="/<%= src %>?tn=0" alt="<%= name%>" data-toggle="modal" data-target="#myModal">-->
+</figure>
+
+
+
+<!--
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('.post-body a img:not(.clickEnabled)').click(function(e) {
+            if (e.which === 1) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#myImg').click(function(e) {
+            if (e.which === 1) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#myImg01").click(function() {
+            $("#myModal").modal();
+        });
+    });
+</script>-->
+
+<!--The Modal -->
+<div id="myModal" class="modal" onclick="this.style.display='none'">
+    <span class="close">×</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    //var img = document.getElementById('img_link').disable = true;
+
+    var img = document.getElementById('myImg01');
+    //var img = document.getElementByClassName('photo');
+    var modalImg = document.getElementById("img01");
+
+
+    var captionText = document.getElementById("caption");
+
+    img.onclick = function() {
+
+        modal.style.display = "block";
+        modalImg.src = this.src;
+
+        captionText.innerHTML = this.alt;
+
+
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
+
+<!--
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+        <img id="img01" style="width:100%">
+    </div>
+</div>
+
+<script>
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+    }
+</script>
+
+<!--
+<% if (exif){ %>
+    <section class="info">
+        <h2>Info</h2>
+        <table>
+            <% for (var key in exif){ %>
+                <% if (key!="Description"){ %>
+                    <tr>
+                        <td>
+                            <%= key %>
+                        </td>
+                        <td>
+                            <%= exif[key] %>
+                        </td>
+                    </tr>
+                    <% } %>
+                        <% } %>
+        </table>
+    </section>
+    <% } %>
+  -->

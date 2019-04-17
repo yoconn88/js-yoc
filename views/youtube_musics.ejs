@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.22.0/css/blueimp-gallery.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        .ig_i5 {
+            position: relative;
+        }
+        
+        .ig_i6 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.48);
+            color: white;
+            font-size: 16px;
+            opacity: 0;
+            -webkit-transition: opacity 0.2s ease-in-out;
+            -moz-transition: opacity 0.2s ease-in-out;
+            -o-transition: opacity 0.2s ease-in-out;
+            transition: opacity 0.2s ease-in-out;
+        }
+        
+        .ig_i7 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .ig_i4 img {
+            width: 100%;
+            display: block;
+        }
+        
+        .ig_i9 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -32px;
+            margin-top: -28px;
+            -webkit-transition: transform 0.2s ease-in-out;
+            -moz-transition: transform 0.2s ease-in-out;
+            -o-transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out;
+            font-size: 60px;
+        }
+        
+        .blueimp-gallery>.indicator>li {
+            width: 40px !important;
+            height: 30px !important;
+            border-radius: 1px !important;
+            background-size: auto 100% !important;
+            opacity: 0.8!important;
+        }
+        
+        .blueimp-gallery>.next,
+        .blueimp-gallery>.prev {
+            width: 70px !important;
+            height: 70px !important;
+            line-height: 60px !important;
+            border-radius: 50% !important;
+            text-indent: 3px !important;
+        }
+        
+        .blueimp-gallery>.prev {
+            text-indent: -3px !important;
+        }
+        
+        .blueimp-gallery>.slides>.slide>.video-content>a {
+            margin: -47px auto 0 !important;
+            background-size: 110px !important;
+        }
+        
+        .blueimp-gallery>.close {
+            font-size: 60px !important;
+            top: 35px !important;
+            font-weight: normal !important;
+        }
+        
+        .ig_i10 img {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('partials/nav.ejs') %>
+        <div class="container-fluid ig_i3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev show">‹</a>
+                        <a class="next show">›</a>
+                        <a class="close show">×</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator show"></ol>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 ig_i2">
+                                <div class="ig_i1">
+                                    <h1>RELAXING MUSIC VIDEO GALLERY</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail ig_i4">
+                                    <a class="ig_i10" href="https://youtu.be/NuIAYHVeFYs" data-youtube="NuIAYHVeFYs" type="text/html" poster="http://img.youtube.com/vi/NuIAYHVeFYs/maxresdefault.jpg" title="">
+                                        <img src="https://i.ytimg.com/vi/NuIAYHVeFYs/hqdefault.jpg" alt="...">
+                                    </a>
+
+                                    <div class="caption">
+                                        <h4>Beautiful Relaxing Music 24/7: Study Music, Sleep Music, Meditation Music, Sleeping Music</h4>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail ig_i4">
+                                    <a class="ig_i10" href="https://youtu.be/xzzrdGaqjkY" data-youtube="xzzrdGaqjkY" type="text/html" poster="http://img.youtube.com/vi/xzzrdGaqjkY/maxresdefault.jpg" title="">
+                                        <img src="https://i.ytimg.com/vi/xzzrdGaqjkY/hqdefault.jpg" alt="...">
+                                    </a>
+
+                                    <div class="caption">
+                                        <h4>Relaxing Music for Stress Relief. Healing Music for Deep Sleep, Meditation, Therapy</h4>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail ig_i4">
+                                    <a class="ig_i10" href="https://youtu.be/7sfeyriwhYg" data-youtube="7sfeyriwhYg" type="text/html" poster="http://img.youtube.com/vi/7sfeyriwhYg/maxresdefault.jpg" title="">
+                                        <img src="https://i.ytimg.com/vi/7sfeyriwhYg/hqdefault.jpg" alt="...">
+                                    </a>
+
+                                    <div class="caption">
+                                        <h4>Relaxing Music for Deep Sleep. Delta Waves. Calm Background Music for Stress Relief, Meditation</h4>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail ig_i4">
+                                    <a class="ig_i10" href="https://youtu.be/D6tC1pyrsTM" data-youtube="D6tC1pyrsTM" type="text/html" poster="http://img.youtube.com/vi/D6tC1pyrsTM/maxresdefault.jpg" title="">
+                                        <img src="https://i.ytimg.com/vi/D6tC1pyrsTM/hqdefault.jpg" alt="...">
+                                    </a>
+
+                                    <div class="caption">
+                                        <h4>FLYING OVER NORWAY (4K UHD) 1HR Ambient Drone Film + Music by Nature Relaxation™ for Stress Relief</h4>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail ig_i4">
+                                    <a class="ig_i10" href="https://youtu.be/CAx2SM_6Kxg" data-youtube="CAx2SM_6Kxg" type="text/html" poster="http://img.youtube.com/vi/CAx2SM_6Kxg/maxresdefault.jpg" title="">
+                                        <img src="https://i.ytimg.com/vi/CAx2SM_6Kxg/hqdefault.jpg" alt="...">
+                                    </a>
+
+                                    <div class="caption">
+                                        <h4>4K Nature Documentary Film - The Carpathians Mountains: Summertime</h4>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail ig_i4">
+                                    <a class="ig_i10" href="https://youtu.be/W-OPA2JimhU" data-youtube="W-OPA2JimhU" type="text/html" poster="http://img.youtube.com/vi/W-OPA2JimhU/maxresdefault.jpg" title="">
+                                        <img src="https://i.ytimg.com/vi/W-OPA2JimhU/hqdefault.jpg" alt="...">
+                                    </a>
+
+                                    <div class="caption">
+                                        <h4>长相思 - 赵方</h4>
+
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.22.0/js/blueimp-gallery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('.ig_i4').click(function(event) {
+                    event = event || window.event;
+                    var link = $('.ig_i4').index(this),
+                        options = {
+                            index: link,
+                            event: event,
+                            youTubeClickToPlay: false
+                        },
+                        links = $('.ig_i4 .ig_i10').toArray();
+                    blueimp.Gallery(links, options);
+                });
+                $('.ig_i4').on({
+                    'mouseenter': function() {
+                        if ($(this).find('.ig_i5').length == 0) {
+                            $(this).find('img').wrap("<div class='ig_i5'></div>");
+                            if ($(this).find('a').attr('type') == 'img') {
+                                $(this).find('.ig_i5').append("<div class='ig_i6'><div class='ig_i7'><i class=\"fa fa-search ig_i9\" aria-hidden=\"true\"></i></div></div>");
+                            } else {
+                                $(this).find('.ig_i5').append("<div class='ig_i6'><div class='ig_i7'><i class=\"fa fa-youtube-play ig_i9\" aria-hidden=\"true\"></i></div></div>");
+                            }
+                            var el = $(this);
+                            setTimeout(function() {
+                                el.find('.ig_i6').css('opacity', '1');
+                                el.find('.ig_i9').css('transform', 'scale(1.1)');
+                            }, 1);
+                        }
+                    }
+                });
+                $('.ig_i4').on('mouseleave', function() {
+                    $(this).find('img').unwrap();
+                    $(this).find('.ig_i6').remove();
+                });
+            });
+        </script>
+</body>
+
+</html>

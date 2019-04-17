@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>YoConn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <!--link rel="stylesheet" href="css/bootstrap.css"> not original one-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    
+    <link rel="stylesheet" href="./node_modules/blueimp-gallery/css/blueimp-gallery.min.css">-->
+    <link rel="stylesheet" href="css/blueimp-gallery.css">
+
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script id="text-template" type="text/x-handlebars-template">
+        <!--Hello <b>{{first_name}}</b> {{last_name}}
+    </script>-->
+</head>
+
+<body>
+
+    <!-- remove gap between navbar and container: -->
+    <!--   <nav class="navbar navbar-default"> -->
+    <nav class="navbar navbar-default" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>       
+                     
+        </button>
+                <a class="navbar-brand" href="#"> <span style="color:#6a5acd;font-weight:bold;font-size:36px">YoConn</span></a>
+            </div>
+            <form class="navbar-form navbar-left" action="/action_page.php">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search without tracking" name="search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right flex-column">
+                    <!--<li class="active"><a href="#">Timemap</a></li>-->
+                    <li><a href="http://localhost:3000/">Home</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="s3-photo-collapsenav.html">Photos <span class="caret"></span></a>
+                        <!--the following does not work:
+                        <a class="dropdown-toggle" data-toggle="collapse" data-target="#myDropdown-menu" href="#">Photos <span class="caret"></span></a>
+                        <ul class="collapse dropdown-menu" id="myDropdown-menu">
+                        NEW! -- It is OK to hide dropdown when you click some where else.
+                        -->
+                        <ul class="dropdown-menu">
+                            <li><a href="load-display-image-use-js.html">Upload</a></li>
+                            <li><a href="resp_topnav_yoc_blueimp.html">Gallary</a></li>
+                            <li><a href="load-photos.html">Load Photos</a></li>
+                            <li><a href="#">Slide</a></li>
+                            <li><a href="http://localhost:3000/images" type="text/html">Albums</a></li>
+                            <li><a href="#">Shared Albums</a></li>
+                            <li><a href="#">Photo Books</a></li>
+                            <li><a href="#">Archive</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Videos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="#">Upload</a></li>
+                            <li><a href="#">Movies</a></li>
+                            <li><a href="#">TV Shows</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Musics</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Live</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">How to</a></li>
+                            <li><a href="#">Sci-Tech</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Future</a></li>
+                            <li><a href="#">Politics</a></li>
+                            <li><a href="#">Religions</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="http://www.cnn.com/services/rss/" rel="noopener noreferrer" target="_blank">News</a></li>
+                    <li><a href="http://opentraffic.io/" rel="noopener noreferrer" target="_blank">Traffic</a></li>
+                    <li><a href="http://www.weather.gov/Radar" rel="noopener noreferrer" target="_blank">Weather</a></li>
+                    <li><a href="w3-social-template.html">Social</a></li>
+                    <li><a href="w3-chat-message.html">Chat</a></li>
+                    <li><a href="w3-blog-template.html">Blog</a></li>
+                    <li><a href="w3-mail-template.html">Mail</a></li>
+                    <li><a href="w3-login-template.html">Login</a></li>
+                    <li><a href="w3-signup-template.html">Sign Up</a></li>
+
+                </ul>
+                <!--
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="w3-login-template.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="w3-signup-template.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+                </ul>
+            -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- container for blueimp gallery: -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!--slideshowarea-->
+                <div class="col-md-offset-2 col-md-10">
+
+                    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+                    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev">‹</a>
+                        <a class="next">›</a>
+                        <a class="close">×</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator"></ol>
+                    </div>
+
+                    <div id="links">
+                        <div class="row">
+                            <div class="col-md-12" id="links1row">
+                                <a href="images/sunset1.jpg" title="sunset1">
+                                    <img src="images/sunset1.jpg" alt="sunset1" width="300" height="200">
+                                </a>
+                                <a href="images/sunset2.jpg" title="ruby">
+                                    <img src="images/sunset2.jpg" alt="sunset2" width="300" height="200">
+                                </a>
+                                <a href="images/sunset3.jpg" title="sunset3">
+                                    <img src="images/sunset3.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+                                <a href="images/sunset4.jpg" title="sunset3">
+                                    <img src="images/sunset4.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+                                <a href="images/sunset5.jpg" title="sunset3">
+                                    <img src="images/sunset5.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+
+                                <a href="images/sunset8.jpg" title="sunset3">
+                                    <img src="images/sunset8.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+                                <a href="images/sunset9.jpg" title="sunset3">
+                                    <img src="images/sunset9.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+                                <a href="images/sunset10.jpg" title="sunset3">
+                                    <img src="images/sunset10.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+                                <a href="images/sunset11.jpg" title="sunset3">
+                                    <img src="images/sunset11.jpg" alt="sunset3" width="300" height="200">
+                                </a>
+                                <!--
+                                    div class="responsive">
+                                        <div class="gallery">
+                                          <a target="_blank" href="img_fjords.jpg">
+                                            <img src="img_fjords.jpg" alt="Trolltunga Norway" width="300" height="200">
+                                          </a>
+                                          <div class="desc">Add a description of the image here</div>
+                                        </div>
+                                      </div>-->
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--script src="./node_modules/blueimp-gallry/js/blueimp-gallery.min.js"></script>-->
+    <script src="js/blueimp-gallery.js"></script>
+
+    <!-- display the images in the Gallery lightbox on click of the links: -->
+    <script>
+        document.getElementById('links').onclick = function(event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {
+                    index: link,
+                    event: event
+                },
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+
+        /* $("#mygallery").justifiedGallery(); not working */
+        /* $('#myLightbox').lightbox(resizeToFit) */
+    </script>
+
+    <!-- image lightbox: no need for blueimp gallery -->
+    <!--<script src="jquery.js"></script>-->
+    <!--
+    <script src="css/imagelightbox.css"></script>
+    <script src="js/imagelightbox.js"></script>
+    <script>
+        $(function() {
+            $(selector).imageLightbox();
+        });
+    </script>
+-->
+</body>
+
+</html>

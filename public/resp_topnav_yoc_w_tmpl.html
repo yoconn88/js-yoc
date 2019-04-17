@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>YoConn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <!--link rel="stylesheet" href="css/bootstrap.css"> not original one-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.js"></script>
+    <!--
+    https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css
+    https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js
+    https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.map
+-->
+
+</head>
+
+<body>
+
+    <!-- remove gap between navbar and container: -->
+    <!--   <nav class="navbar navbar-default"> -->
+    <nav class="navbar navbar-default" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>       
+                     
+        </button>
+                <a class="navbar-brand" href="#"> <span style="color:#6a5acd;font-weight:bold;font-size:36px">YoConn</span></a>
+            </div>
+            <form class="navbar-form navbar-left" action="/action_page.php">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search without tracking" name="search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right flex-column">
+                    <!--<li class="active"><a href="#">Timemap</a></li>-->
+                    <li><a href="http://localhost:3000/">Home</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="s3-photo-collapsenav.html">Photos <span class="caret"></span></a>
+                        <!--the following does not work:
+                        <a class="dropdown-toggle" data-toggle="collapse" data-target="#myDropdown-menu" href="#">Photos <span class="caret"></span></a>
+                        <ul class="collapse dropdown-menu" id="myDropdown-menu">
+                        NEW! -- It is OK to hide dropdown when you click some where else.
+                        -->
+                        <ul class="dropdown-menu">
+                            <li><a href="load-display-image-use-js.html">Upload</a></li>
+                            <li><a href="resp_topnav_yoc_blueimp.html">Gallary</a></li>
+                            <!--li><a href="http://localhost:3000/index.ejs" type="text/html">Blueimp</a></li>
+                                                       
+                           
+                            <li><a href="display-images-from-folder.html">Load folder</a></li>
+                            <li><a href="lightbox-from-folder.html">Lightbox folder</a></li>
+                            <li><a href="flickr-like-gallery.html">flickr gallery</a></li>
+                            -->
+                            <li><a href="load-photos.html">Load Photos</a></li>
+                            <li><a href="#">Slides</a></li>
+                            <li><a href="http://localhost:3000/images" type="text/html">Albums</a></li>
+                            <li><a href="#">Shared Albums</a></li>
+                            <li><a href="#">Photo Books</a></li>
+                            <li><a href="#">Archive</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Videos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="#">Upload</a></li>
+                            <li><a href="#">Movies</a></li>
+                            <li><a href="#">TV Shows</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Musics</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Live</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">How to</a></li>
+                            <li><a href="#">Sci-Tech</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Future</a></li>
+                            <li><a href="#">Politics</a></li>
+                            <li><a href="#">Religions</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="http://www.cnn.com/services/rss/" rel="noopener noreferrer" target="_blank">News</a></li>
+                    <li><a href="http://opentraffic.io/" rel="noopener noreferrer" target="_blank">Traffic</a></li>
+                    <li><a href="http://www.weather.gov/Radar" rel="noopener noreferrer" target="_blank">Weather</a></li>
+                    <li><a href="w3-social-template.html">Social</a></li>
+                    <li><a href="w3-chat-message.html">Chat</a></li>
+                    <li><a href="ToDoList.html">TODO</a></li>
+                    <li><a href="w3-mail-template.html">Mail</a></li>
+                    <li><a href="w3-login-template.html">Login</a></li>
+                    <li><a href="w3-signup-template.html">Sign Up</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <!--
+                    <li><a href="w3-login-template.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="w3-signup-template.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    -->
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--div class="container">-->
+    <!-- use container-fluid for full width of screen -->
+    <div class="container-fluid">
+
+        <!-- copied from timemap: -->
+        <!-- Search, Mail, Sports, Dating, Entertainments, Celebrity, Health, Wellness, Safety, DIY -->
+        <!-- Albums by time or location -->
+        <!-- Our web map and content will go here -->
+        <div id="map" style="width: 1405px; height: 675px"></div>
+        <div id="controls" style="margin: 15px;">
+            <button id="addButton">Show All Coffee Shops</button>
+            <button id="removeButton">Hide All Coffee Shops</button>
+            <button id="toggleButton">Toggle All Coffee Shops</button>
+            <button id="filterSBux">Starbucks</button>
+            <button id="filterDD">Dunkin Donuts</button>
+        </div>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script>
+            // Web map code goes here
+            var map = L.map('map', {
+                center: [42.362432, -71.086086],
+                zoom: 3
+            });
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+            /*
+                    // Creating a Layer object
+                    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                    map.addLayer(layer); // Adding layer to the map
+
+            */
+            map.doubleClickZoom.disable();
+
+            //Right click on the map activated
+            //map.on('contextmenu', function(e) {alert(e.latlng);});
+
+            /*Right click to put a marker */
+            map.on("contextmenu", function(event) {
+                console.log("Coordinates: " + event.latlng.toString());
+                L.marker(event.latlng).addTo(map);
+            });
+
+
+            /*
+                    var imageUrl = 'https://photos.google.com/photo/AF1QipNXfHhyqqyrTwJ0_ENPgGcwYK58jx4Wl0bi9CAA',
+                        var imageBounds = [
+                            center, [-71.396553, 42.727725]
+                        ];
+
+                    L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+            */
+            var coffeeShops = {
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "properties": {
+                        "name": "Dunkin Donuts",
+                        "address": "1 Broadway #1, Cambridge, MA 02142",
+                        "latitude": 42.362504,
+                        "longitude": -71.083372
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-71.083372, 42.362504]
+                    }
+                }, {
+                    "type": "Feature",
+                    "properties": {
+                        "name": "Starbucks",
+                        "address": "6 Cambridge Center, Cambridge, MA 02142",
+                        "latitude": 42.363884,
+                        "longitude": -71.087749
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-71.087749, 42.363884]
+                    }
+                }]
+            };
+
+            var coffeeShopPoints = null;
+
+            document.getElementById("addButton").addEventListener("click", addCoffeeShops);
+
+            function addCoffeeShops() {
+                coffeeShopPoints = L.geoJson(coffeeShops, {
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(feature.properties.name);
+                    }
+                }).addTo(map);
+            };
+
+            document.getElementById("removeButton").addEventListener("click", removeCoffeeShops);
+
+            function removeCoffeeShops() {
+                map.removeLayer(coffeeShopPoints);
+            };
+
+            document.getElementById("toggleButton").addEventListener("click", toggleCoffeeShops);
+
+            function toggleCoffeeShops() {
+                if (map.hasLayer(coffeeShopPoints)) {
+                    removeCoffeeShops();
+                } else {
+                    addCoffeeShops();
+                }
+            };
+
+            document.getElementById("filterSBux").addEventListener("click", filterSBux);
+
+            function filterSBux() {
+                removeCoffeeShops();
+                coffeeShopPoints = L.geoJson(coffeeShops, {
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(feature.properties.name);
+                    },
+                    filter: function(feature, layer) {
+                        return feature.properties.name == "Starbucks";
+                    }
+                }).addTo(map);
+            }
+
+            document.getElementById("filterDD").addEventListener("click", filterDD);
+
+            function filterDD() {
+                removeCoffeeShops();
+                coffeeShopPoints = L.geoJson(coffeeShops, {
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(feature.properties.name);
+                    },
+                    filter: function(feature, layer) {
+                        return feature.properties.name == "Dunkin Donuts";
+                    }
+                }).addTo(map);
+            }
+        </script>
+
+    </div>
+
+</body>
+
+</html>

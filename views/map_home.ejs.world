@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/css-links.ejs') %>
+
+</head>
+
+<body>
+    <%- include('partials/topnav.ejs') %>
+
+        <!--div class="container">-->
+        <!-- use container-fluid for full width of screen -->
+        <div class="container">
+
+            <!-- copied from timemap: -->
+            <!-- Search, Mail, Sports, Dating, Entertainments, Celebrity, Health, Wellness, Safety, DIY -->
+            <!-- Albums by time or location -->
+            <!-- Our web map and content will go here -->
+            <!--div id="map" style="width: 1405px; height: 675px"></div>-->
+            <div id="map" style="width: 1405px; height: 875px; margin-left:0px"></div>
+            <div id="controls" style="margin: 15px;">
+                <button id="addButton">Show All Coffee Shops</button>
+                <button id="removeButton">Hide All Coffee Shops</button>
+                <button id="toggleButton">Toggle All Coffee Shops</button>
+                <button id="filterSBux">Starbucks</button>
+                <button id="filterDD">Dunkin Donuts</button>
+            </div>
+            <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+            <script>
+                // Web map code goes here
+                var map = L.map('map', {
+                    center: [42.362432, -71.086086],
+                    zoom: 3
+                });
+
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+                /*
+                        // Creating a Layer object
+                        var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                        map.addLayer(layer); // Adding layer to the map
+
+                */
+                map.doubleClickZoom.disable();
+
+                //Right click on the map activated
+                //map.on('contextmenu', function(e) {alert(e.latlng);});
+
+                /*Right click to put a marker */
+                map.on("contextmenu", function(event) {
+                    console.log("Coordinates: " + event.latlng.toString());
+                    L.marker(event.latlng).addTo(map);
+                });
+
+
+                /*
+                        var imageUrl = 'https://photos.google.com/photo/AF1QipNXfHhyqqyrTwJ0_ENPgGcwYK58jx4Wl0bi9CAA',
+                            var imageBounds = [
+                                center, [-71.396553, 42.727725]
+                            ];
+
+                        L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+                */
+                var coffeeShops = {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Dunkin Donuts",
+                            "address": "1 Broadway #1, Cambridge, MA 02142",
+                            "latitude": 42.362504,
+                            "longitude": -71.083372
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-71.083372, 42.362504]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Starbucks",
+                            "address": "6 Cambridge Center, Cambridge, MA 02142",
+                            "latitude": 42.363884,
+                            "longitude": -71.087749
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [-71.087749, 42.363884]
+                        }
+                    }]
+                };
+
+                var coffeeShopPoints = null;
+
+                document.getElementById("addButton").addEventListener("click", addCoffeeShops);
+
+                function addCoffeeShops() {
+                    coffeeShopPoints = L.geoJson(coffeeShops, {
+                        onEachFeature: function(feature, layer) {
+                            layer.bindPopup(feature.properties.name);
+                        }
+                    }).addTo(map);
+                };
+
+                document.getElementById("removeButton").addEventListener("click", removeCoffeeShops);
+
+                function removeCoffeeShops() {
+                    map.removeLayer(coffeeShopPoints);
+                };
+
+                document.getElementById("toggleButton").addEventListener("click", toggleCoffeeShops);
+
+                function toggleCoffeeShops() {
+                    if (map.hasLayer(coffeeShopPoints)) {
+                        removeCoffeeShops();
+                    } else {
+                        addCoffeeShops();
+                    }
+                };
+
+                document.getElementById("filterSBux").addEventListener("click", filterSBux);
+
+                function filterSBux() {
+                    removeCoffeeShops();
+                    coffeeShopPoints = L.geoJson(coffeeShops, {
+                        onEachFeature: function(feature, layer) {
+                            layer.bindPopup(feature.properties.name);
+                        },
+                        filter: function(feature, layer) {
+                            return feature.properties.name == "Starbucks";
+                        }
+                    }).addTo(map);
+                }
+
+                document.getElementById("filterDD").addEventListener("click", filterDD);
+
+                function filterDD() {
+                    removeCoffeeShops();
+                    coffeeShopPoints = L.geoJson(coffeeShops, {
+                        onEachFeature: function(feature, layer) {
+                            layer.bindPopup(feature.properties.name);
+                        },
+                        filter: function(feature, layer) {
+                            return feature.properties.name == "Dunkin Donuts";
+                        }
+                    }).addTo(map);
+                }
+            </script>
+
+        </div>
+        <%- include('partials/js-libs.ejs') %>
+</body>
+
+</html>

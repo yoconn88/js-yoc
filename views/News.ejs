@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('partials/css-links.ejs') %>
+        <style>
+            /* Use a media query to add a break point at 800px: */
+            
+            @media screen and (max-width:300px) {
+                example {
+                    display: block;
+                    /* The width is 100%, when the viewport is 800px or smaller */
+                }
+            }
+            /* Extra small devices (phones, 600px and down) */
+            
+            @media only screen and (max-width: 600px) {
+                .example {
+                    background: red;
+                }
+            }
+            /* Small devices (portrait tablets and large phones, 600px and up) */
+            
+            @media only screen and (min-width: 600px) {
+                .example {
+                    background: green;
+                }
+            }
+            /* Medium devices (landscape tablets, 768px and up) */
+            
+            @media only screen and (min-width: 768px) {
+                .example {
+                    background: blue;
+                }
+            }
+            /* Large devices (laptops/desktops, 992px and up) */
+            
+            @media only screen and (min-width: 992px) {
+                .example {
+                    background: orange;
+                }
+            }
+            /* Extra large devices (large laptops and desktops, 1200px and up) */
+            
+            @media only screen and (min-width: 1200px) {
+                .example {
+                    background: pink;
+                }
+            }
+        </style>
+
+
+</head>
+
+<body>
+    <%- include('partials/topnav.ejs') %>
+
+        <div class="container mt-3">
+
+            <div class="row">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#vtab" aria-controls="vtab" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                <!--a href="#vtab" data-toggle="tab" data-target="vtab"></a>-->
+                <!-- Nav tabs -->
+                <!--ul class="nav nav-tabs nav-pills flex-column collapse show col-xm-3" id="vtab">-->
+                <ul class="nav nav-tabs nav-pills flex-column collapse show col-xm-3" id="vtab">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#worldNews">World</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#market">Market</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#stock">Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#businessNews">Business</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#companyNews">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#scienceNews">Science</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#technologyNews">Technology</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#politicsNews">Politics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#sportsNews">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#newsMakers">News Makers</a>
+                    </li>
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content col-xm-9 col-sm-9 col-md-9 col-lg-9">
+
+                    <div id="worldNews" class="container tab-pane active">
+                        <br>
+                        <h3>World News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent; border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1530420837373&amp;x=http%3A%2F%2Ffeeds.reuters.com%2FReuters%2FworldNews&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="market" class="container tab-pane fade">
+                        <br>
+                        <h3>Market</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531626125327&amp;x=http%3A%2F%2Farticlefeeds.nasdaq.com%2Fnasdaq%2Fcategories%3Fcategory%3DUS%2BMarkets&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="stock" class="container tab-pane fade">
+                        <br>
+                        <h3>Stock News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531626045222&amp;x=http%3A%2F%2Farticlefeeds.nasdaq.com%2Fnasdaq%2Fcategories%3Fcategory%3DStocks&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="businessNews" class="container tab-pane fade">
+                        <br>
+                        <h3>Business News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110305471&amp;x=http%3A%2F%2Ffeeds.reuters.com%2Freuters%2FbusinessNews&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="companyNews" class="container tab-pane fade">
+                        <br>
+                        <h3>Company News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110254469&amp;x=http%3A%2F%2Ffeeds.reuters.com%2Freuters%2FcompanyNews&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="scienceNews" class="container tab-pane fade">
+                        <br>
+                        <h3>Science News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110389991&amp;x=http%3A%2F%2Ffeeds.reuters.com%2Freuters%2FscienceNews&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="technologyNews" class="container tab-pane fade">
+                        <br>
+                        <h3>Technology News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110579664&amp;x=http%3A%2F%2Ffeeds.reuters.com%2Freuters%2FtechnologyNews&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="politicsNews" class="container tab-pane fade">
+                        <br>
+                        <h3>Politics News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110705976&amp;x=http%3A%2F%2Ffeeds.reuters.com%2FReuters%2FPoliticsNews&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sportsNews" class="container tab-pane fade">
+                        <br>
+                        <h3>Sports News</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110810477&amp;x=http%3A%2F%2Ffeeds.reuters.com%2Freuters%2FsportsNews&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="newsMakers" class="container tab-pane fade">
+                        <br>
+                        <h3>News Makers</h3>
+                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;background-color:#transparent;
+                            border:0px solid #333333;">
+                            <div id="rsswidget">
+                                <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1531110887454&amp;x=http%3A%2F%2Ffeeds.reuters.com%2Freuters%2FUSVideoNewsmakers&amp;w=800&amp;h=999&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
+                                    border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="height:2500px;border:0; padding:0; margin:0; width:100%;" id="rssOutput">Reading RSS Feed ...</iframe>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/footer.ejs') %>
+        <%- include('partials/js-libs.ejs') %>
+</body>
+
+</html>

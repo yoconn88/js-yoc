@@ -1,0 +1,89 @@
+#controls {
+  float: left;
+  position: relative;
+}
+
+/* Customize bootstrap.css here */
+
+/* navbar bg color */
+
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* text link color */
+
+.navbar-default .navbar-nav>li>a {
+  color: #3603b8;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: rgb(202, 207, 207);
+  color: #270272;
+}
+
+.navbar-default .nav-right>li>a {
+  background-color: rgb(202, 207, 207);
+  color: #270272;
+}
+
+.navbar-default .nav>li>a:hover {
+  background-color: rgb(202, 207, 207);
+  color: #270272;
+}
+
+/* change navbar height: */
+
+.navbar {
+  min-height: 60px;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 60px;
+  line-height: 60px;
+}
+
+.navbar-toggle {
+  /* (60px - button height 34px) / 2 = 13px */
+  margin-top: 13px;
+  padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav>li>a {
+    /* (60px - line-height of 27px) / 2 = 13.5px */
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {
+    display: none;
+  }
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar.responsive {
+    position: relative;
+  }
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}

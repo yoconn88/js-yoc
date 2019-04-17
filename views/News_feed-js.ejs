@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/node_modules/feed-js/feed.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var render = function(posts) {
+            posts.item.forEach(function(element) {
+                console.log(element.title);
+                console.log(element.link);
+            });
+        };
+
+        window.Feed({
+            url: 'http://rss.cnn.com/rss/cnn_topstories.rss',
+            number: 3,
+            callback: render
+        });
+    </script>
+</body>
+
+</html>

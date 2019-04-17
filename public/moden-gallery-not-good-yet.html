@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    ...
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin: 20px;
+            padding: 0;
+            background: #333;
+        }
+        
+        .container {
+            max-width: 760px;
+            margin: auto;
+            border: #fff solid 3px;
+            background: #fff;
+        }
+        
+        main-img img,
+        .imgs img {
+            max-width: 40%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .imgs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-img">
+            <img src="images/sunset1.jpg" id="current">
+        </div>
+
+        <div class="imgs">
+            <img src="images/sunset2.jpg">
+            <img src="images/sunset3.jpg">
+        </div>
+    </div>
+
+    <!--script src="moden-image-gallery-use-es6.js"></script>-->
+    <script>
+        const current = document.querySelector('#current');
+        const imgs = docuemnt.querySelectorAll('.imgs img');
+        const opacity = 0.6;
+
+        imgs[0].style.opacity = opacity;
+
+        imgs.forEach(img => img.addEventListener('click', imgClick));
+
+        function imgClick(e) {
+            // reset opacity
+            imgs.forEach(img => (img.style.opacity = 1));
+            // change current img to clicked img
+            current.src = e.target.src;
+
+            current.classList.add('fade-in');
+            setTimeout(() => current.classList.remove('fade-in'), 500);
+
+            e.target.style.opacity = opacity;
+    </script>
+
+</body>

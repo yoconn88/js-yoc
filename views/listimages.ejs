@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codedodle - Node.js image upload</title>
+    <meta name="description" content="Node.js image upload using express, jQuery using ajax." />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background-color: #cccccc;
+        }
+    </style>
+
+    <style>
+        #image {
+            width: 300px;
+        }
+        
+        ;
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Hello World</p>
+
+        <div id="image" class="row"></div>
+    </div>
+
+    <script>
+        function listfiles(data) {
+            if (data.length > 0) {
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    var img = data[i];
+
+                    if (img.status) {
+                        html += '<div class="col-xs-6 col-md-4"><a href="#" class="thumbnail"><img src="' + img.publicPath + '" alt="' + img.filename + '"></a></div>';
+                    } else {
+                        html += '<div class="col-xs-6 col-md-4"><a href="#" class="thumbnail">Invalid file type - ' + img.filename + '</a></div>';
+                    }
+                }
+
+                $('#image').html(html);
+            } else {
+                alert('No images were uploaded.')
+            }
+        }
+        /*
+                //use JSON.stringify to convert it to json string
+                var jsonstring = JSON.stringify(filearray);
+                $("#album").append('<p>json string: ' + jsonstring + '</p>');
+
+                //convert json string to json object using JSON.parse function
+                var jsonobject = JSON.parse(jsonstring);
+                var info = '<ul><li>Name:' + jsonobject.name + '</li><li>Street:' + jsonobject.street + '</li><li>Phone:' + jsonobject.phone + '</li></ul>';
+
+                $("#result").append('<p>json object:</p>');
+                $("#result").append(info);
+    </script>
+
+
+</body>
+
+</html>
